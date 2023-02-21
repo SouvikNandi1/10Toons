@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        < 10 Toons</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+            <link rel="stylesheet" href="./res/styles/main.css">
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <img src="./My project-1.png" alt="">
+        <div class="search" style="width: 100%;">
+            <div class="searchbar">
+                <input id="search-input" autocomplete="off" type="search">
+                <button id="search-button"><i class="bi bi-search"></i></button>
+            </div>
+            <div class="searchsuggetion" id="suggestion-list"></div>
+        </div>
+    </div>
+    <div id="results"></div>
+    <div class="main">
+        <!-- <a href="./Mr Bean/season1/episod1.html">
+            <div class="banner" id="ani1">
+                <img src="./mrbeanreal.jpg" alt="" srcset="">
+                <h2>Mr. Bean</h2>
+                <p>Season 1 ,15 episodes</p>
+            </div>
+        </a> -->
+        <a href="./animated/Mr Bean/season1/index.html">
+            <div class="banner" id="ani2">
+                <img src="./mrbeancartoon.jpeg" alt="" srcset="">
+                <h2>Mr. Bean Animated Series</h2>
+                <p>Season 1-5 ,130 episodes</p>
+            </div>
+            <div id="dot"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span
+                    class="dot"></span><span class="dot"></span></div>
+    </div>
+    </a>
+    </div>
+    <div class="more">
+        <div class="firstrow">
+            <a href="">
+                <div class="toons">
+                    <img src="./mrbeanreal.jpg" alt="">
+                    <h2>Mr. Bean </h2>
+                    <p>Season 1 ,15 episodes</p>
+                </div>
+            </a>
+            <a href="">
+                <div class="toons">
+                    <img src="./Takeshis-castle.webp" alt="">
+                    <h2>Takeshi's Castle</h2>
+                    <p>Season 1 ,133 episodes</p>
+                </div>
+            </a>
+            <a href="">
+                <div class="toons">
+                    <img src="./artattak.webp" alt="">
+                    <h2>Art Attack</h2>
+                    <p>Season 1-19 ,301 episodes</p>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+    <script src="./res/scripts/script.js"></script>
+</body>
+
+</html>
+<script>
+    $(function () {
+        $.getJSON("./database.json", function (data) {
+            autoComplete = [];
+            for (var i = 0, len = data.length; i < len; i++) {
+                autoComplete.push(data[i].title);
+
+            }
+            $("#search-input").autocomplete({
+                source: autoComplete
+
+            });
+
+        });
+    });
+</script>
+<script>
+    var index = 0;
+    var slides = document.querySelectorAll(".banner");
+    var dot = document.querySelectorAll(".dot");
+
+    function changeSlide() {
+        if (index < 0) {
+            index = slides.length - 1;
+        }
+
+        if (index > slides.length - 1) {
+            index = 0;
+        }
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            dot[i].classList.remove("active");
+        }
+
+        slides[index].style.display = "block";
+        dot[index].classList.add("active");
+
+        index++;
+
+        setTimeout(changeSlide, 10000);
+    }
+
+    changeSlide();
+</script>
