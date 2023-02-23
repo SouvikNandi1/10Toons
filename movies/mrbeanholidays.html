@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr Bean - Season 1 ,Episode 1</title>
+    <link rel="stylesheet" href="./style/video.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.3/plyr.css" />
+    <script src="https://cdn.plyr.io/3.6.3/plyr.js"></script>
+</head>
+
+<body>
+    <header>
+        <h2 title="">Missing Teddy</h2>
+        <p>Season 1,Episode 2</p>
+    </header>
+    <div class="video" style="text-align: center;">
+        <!-- <video autoplay preload="auto"
+            src="https://github.com/Disunic20/10Toons/releases/download/mrbeanreal/MrBeansHolidaymovie.mp4" controls
+            controlsList="nodownload"></video> -->
+        <video id="video" controls>
+            <source src="https://github.com/Disunic20/10Toons/releases/download/mrbeanreal/MrBeansHolidaymovie.mp4"
+                id="vs" type="video/mp4" />
+        </video>
+    </div>
+    <div class="about">
+        <h3>About</h3>
+        <p>In this episode, Mr. Bean's beloved teddy bear goes missing, and he embarks on a frantic search to find it.
+            He retraces his steps from the previous day, which included a trip to the park and a visit to a toy store.
+            Along the way, he encounters various obstacles, including a troublesome squirrel and a group of mischievous
+            children who steal his clothes.</p>
+    </div>
+
+    <div class="feedback">
+        <p>Feedback Hub</p>
+        <div class="section">
+            <form id="message-form">
+                <input id="name" type="search" placeholder="Enter Your Name ...">
+                <input id="showname" type="search" placeholder="Enter The Show Name ...">
+                <input id="season" type="search" placeholder="Enter The Season Number ...">
+                <input id="episod" type="search" placeholder="Enter The Episode Number ...">
+                <textarea name="" id="feedback" cols="30" rows="10" placeholder="Give Your Feedback"></textarea>
+                <button id="message-btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const player = new Plyr('#video', {
+            // controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'fullscreen'],
+            hideControls: false,
+            fullscreen: { enabled: true, fallback: true, iosNative: false },
+            autoplay: true,
+            loop: { active: true },
+            keyboard: { focused: true, global: true },
+            // controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
+            settings: ['captions', 'quality', 'speed'],
+            controls: [
+    //   'play-large', // The large play button in the center
+    //   'restart', // Restart playback
+    //   'rewind', // Rewind by the seek time (default 10 seconds)
+      'play', // Play/pause playback
+    //   'fast-forward', // Fast forward by the seek time (default 10 seconds)
+      'progress', // The progress bar and scrubber for playback and buffering
+      'current-time', // The current time of playback
+      'duration', // The full duration of the media
+      'mute', // Toggle mute
+      'volume', // Volume control
+      'captions', // Toggle captions
+      'settings', // Settings menu
+      'pip', // Picture-in-picture (currently Safari only)
+      'airplay', // Airplay (currently Safari only)
+      'fullscreen', // Toggle fullscreen
+      'landscape' // Add the landscape button
+    ]
+            // https://github.com/Disunic20/10Toons/releases/download/mrbeanreal/MrBeansHolidaymovie.mp4
+        });
+    </script>
+</body>
+
+</html>
+<style>
+    @font-face {
+        font-family: "plyr";
+        src: url("https://cdn.plyr.io/3.6.3/plyr.svg") format("svg"),
+            url("https://cdn.plyr.io/3.6.3/plyr.ttf") format("truetype"),
+            url("https://cdn.plyr.io/3.6.3/plyr.woff") format("woff"),
+            url("https://cdn.plyr.io/3.6.3/plyr.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .plyr {
+        font-family: "plyr";
+    }
+
+    .plyr__controls {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+    }
+
+    .plyr__control {
+        color: #fff;
+    }
+
+    .plyr__progress--buffer,
+    .plyr__progress--played {
+        background-color: #fff;
+    }
+
+    .plyr__progress--buffer::before,
+    .plyr__progress--played::before {
+        background-color: #fff;
+    }
+
+    .plyr__control--overlaid {
+        color: #fff;
+    }
+
+    .plyr__tooltip {
+        background-color: #fff;
+        color: #000;
+    }
+</style>
